@@ -227,6 +227,12 @@ p {
   margin: 1rem auto 2rem auto;
 }
 
+.medium-image {
+  max-width: 85%;
+  display: block;
+  margin: 1rem auto 2rem auto;
+}
+
 .z-depth-1 {
   /* Remove shadow from images as it's now on the container */
   box-shadow: none;
@@ -578,7 +584,7 @@ pre {
 
 .slideshow {
     position: relative;
-    height: 580px;
+    height: 450px;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
@@ -619,9 +625,9 @@ pre {
 }
 
 .comparison-slideshow-image {
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
-    height: 400px;
+    height: 350px;
     margin: 0 auto;
     object-fit: contain;
     border-radius: 8px;
@@ -815,4 +821,56 @@ pre {
 /* Hide play button when video is playing */
 .video-container video.playing + .play-button-overlay {
     display: none;
+}
+
+/* Two-column layout for framework section */
+.two-col {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.two-col .col-left, .two-col .col-right {
+  flex: 1 1 0;
+  min-width: 0; /* prevent overflow */
+}
+
+.two-col .col-left p:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure nested image container fits column */
+.two-col .image-container {
+  margin: 0;
+  width: 100%;
+
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Shrink image inside two-column framework section (Option 1) */
+.two-col .col-right img {
+  max-width: 80%; /* adjust 70~85% as needed */
+  margin: 0 auto 0.5rem auto;
+  display: block;
+}
+
+/* Adjust column width ratio: give more space to text (left) than image (right) */
+.two-col .col-left {
+  flex: 1.2 1 0; /* increase text width */
+}
+
+.two-col .col-right {
+  flex: 0.8 1 0; /* decrease image column width */
+}
+
+/* Optional: tighten right image container padding a bit */
+.two-col .col-right .image-container {
+  padding: 0.75rem 0.75rem 0.9rem;
 }

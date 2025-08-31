@@ -162,93 +162,13 @@
     <main class="main-content">
         <div class="container">
             <div class="tldr">
-                <b>TL;DR</b>: VIsual Representation ALignment (VIRAL) is a simple but effective regularization strategy that aligns the internal visual representations of MLLMs with those from pretrained vision foundation models.
+                <b>TL;DR</b>: VIRAL directly aligns MLLMs' visual tokens with pretrained vision model features, preserving fine-grained visual details and boosting vision-centric reasoning beyond text-only supervision.
             </div>
 
-            <!--<section id="additional-examples" class="section" style="margin: -1rem 0 -2rem 0;">
-                <h2>High-quality Captions in Challenging Scenes</h2>
-
-                <p>Our model is able to generate high-quality detailed localized captions for diverse regions, including the main objects, small objects in the background, and regions in cluttered scenes.</p>
-
-                <div class="slideshow-container">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="images/examples/1.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A medium-sized dog with a thick, reddish-brown coat and a white underbelly and legs. The dog has a bushy tail, pointed ears, and a red collar with a silver tag. Its mouth is open, showing its teeth, and its tongue is hanging out. The dog is in a running pose with its front legs extended forward and its back legs stretched out behind.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <video src="images/examples/8.mp4" class="slideshow-image-video" autoplay muted loop></video>
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A vibrant goldfish with a striking pattern of orange and black spots glides gracefully through the water. Its body is elongated and streamlined, with a prominent dorsal fin that arches elegantly along its back. The tail fin fans out, displaying a delicate, translucent quality that ripples with each movement. As it swims, the goldfish's body undulates smoothly, propelling it forward with a gentle, rhythmic motion. The fins, particularly the pectoral fins, flutter subtly, aiding in navigation and balance. The goldfish's head is slightly pointed, with a curious, expressive eye that seems to observe its surroundings with keen interest. Throughout its journey, the goldfish maintains a steady, fluid motion, exuding a sense of calm and elegance as it interacts with the aquatic environment.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/2.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A blue wooden chair with a straight backrest featuring three vertical slats. The seat is flat and rectangular, and the chair has four sturdy legs.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/3.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A round, green metal table with a flat, circular top. The table has a cylindrical base with a horizontal black band around its middle. The base is supported by four black metal legs.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/4.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> The balcony features an ornate wrought iron railing with intricate floral and geometric patterns. The design includes symmetrical motifs with a central floral design flanked by symmetrical, ornate scrollwork. The railing is composed of vertical and horizontal bars, creating a grid-like structure with decorative elements.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/5.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A white cat with light orange ears and a pink nose. The cat has a relaxed expression with slightly closed eyes and a soft, white fur coat.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <video src="images/examples/9.mp4" class="slideshow-image-video" autoplay muted loop></video>
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A monkey with a light brown coat and a slightly darker face is seen in a series of dynamic movements. Initially, it appears to be reaching into a container with its right hand, which is holding a piece of yellow food. The monkey's posture is slightly hunched, indicating focus and intent as it interacts with the food. As the sequence progresses, the monkey brings the food closer to its mouth, using both hands to manipulate it. Its facial expression suggests concentration and enjoyment, with its eyes partially closed. The monkey's body shifts slightly, maintaining balance as it continues to eat. Throughout the sequence, the monkey's movements are fluid and purposeful, showcasing its dexterity and agility. The final frames depict the monkey holding the food with both hands, bringing it closer to its face, and then lowering it slightly, possibly preparing to take another bite.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/6.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> The eye has a dark, almost black pupil surrounded by a thick, irregularly shaped iris. The iris is predominantly light gray with patches of darker gray and brown, giving it a mottled appearance. The outer edge of the iris is slightly jagged and uneven.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/examples/7.jpg" class="slideshow-image">
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A modern skyscraper with a sleek, rectangular design featuring a series of vertical, evenly spaced windows. The building has a stepped structure, with each section slightly smaller than the one below it, creating a tiered effect. The facade is predominantly composed of reflective glass panels, giving it a contemporary and polished appearance.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <video src="images/examples/10.mp4" class="slideshow-image-video" autoplay muted loop></video>
-                            <div class="image-caption">
-                                <b>Caption from DAM:</b> A cow with a rich brown coat and a lighter patch on its rump is depicted in a sequence of movements. Initially, the cow is seen with its head slightly lowered, suggesting a calm demeanor. As the sequence progresses, the cow begins to move forward, its legs extending in a steady, rhythmic gait. The tail, with its tufted end, sways gently with each step, adding a sense of fluidity to its motion. The cow's body remains mostly upright, with its back slightly arched, indicating a relaxed posture. The legs, sturdy and well-defined, carry the cow forward with a sense of purpose. Throughout the sequence, the cow maintains a consistent pace, its movements smooth and unhurried, embodying a serene and composed presence.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
-                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
-                    
-                    <div class="slideshow-controls">
-                        <button class="play-pause" onclick="togglePlayPause()">
-                            <i class="fa fa-pause"></i>
-                        </button>
-                    </div>
-                </div>
-            </section> -->
-
             <div id="abstract" class="base-row section">
-                <h2>Introducing the VIsual Representation Alignment (VIRAL)</h2>
+                <h2>Introducing the VIsual Representation ALignment (VIRAL)</h2>
                 <p class="paragraph">
-                    We propose a novel framework, <strong>VIsual Representation ALignment (VIRAL)</strong>, which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substatntial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.
+                    <Strong>VIsual Representation ALignment (VIRAL)</Strong> is a simple but effective regularization strategy that aligns the internal visual representations of MLLMs with those from pretrained vision foundation models (VFMs). By explicitly supervising intermediate visual tokens with rich VFM features, VIRAL preserves semantically meaningful visual information that would otherwise be discarded under text-only learning.
                 </p>
             </div>
 
@@ -257,7 +177,7 @@
                         <img src="images/viral_teaser.png" class="img large-image">
                     </div>
 
-                    <p class="image-caption">We propose a novel framework, <strong>VIsual Representation ALignment (VIRAL)</strong>, which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substatntial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.<br/> </p>
+                    <p class="image-caption">We propose <strong>VIsual Representation ALignment (VIRAL)</strong> for multi-modal large language models (MLLMs), which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substantial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.</p>
             </div>
 
             
@@ -265,35 +185,54 @@
             <section id="pilot-study" class="section">
                 <h2>Pilot study</h2>
 
-                <p>Paragraph of pilot study: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <p>MLLMs trained with text-only loss often discard fine-grained visual details. To address this, residual feature injection and explicit Visual Representation Alignment (VRA) loss are proposed to preserve richer visual semantics in intermediate layers.</p>
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/viral_pilot_study.png" class="img large-image">
+                        <img src="images/viral_comparisons.png" class="img large-image">
                     </div>
-                    <p class="image-caption">Pilot study caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
+                    <p class="image-caption"> Comparisons of (a) baseline visual instruction tuning, (b) re-injecting visual features via a residual connection, and (c) visual representation alignment. Both (b) and (c) are applied at the 16-th layer. </p>
+                </div>
+
+                <p>Visual features in MLLMs degrade with depth, but residual connections reduce this loss, and explicit alignment preserves them more effectively. Multimodal benchmarks show alignment loss yields the greatest gains, outperforming simple feature re-injection.</p>
+
+                <div class="image-container">
+                    <div class="image-content">
+                        <img src="images/viral_comparisons_result.png" class="img large-image">
+                    </div>
+                    <p class="image-caption">(d): Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions denoting middle layers that are especially important for visual understanding. (e): Benchmark performance corresponding to (a-c) </p>
                 </div>
             </section>
 
             <section id="framework" class="section">
                 <h2>Illustration of our framework</h2>
-
-                <p>Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p>
-                <div class="image-container">
-                    <img src="images/viral_architecture.png" class="image-item img large-image z-depth-1">
-                    <p class="image-caption">Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p>
+                <div class="two-col">
+                    <div class="col-left">
+                        <p>
+                        We freeze a pretrained Vision Foundation Model (VFM) $\mathcal{E}(\cdot)$ and treat its intermediate representation as a stable target $\mathbf{y} = \mathcal{E}(I)$. For each image $I$, the MLLM produces intermediate visual tokens $\mathbf{e}^\mathrm{img}_{\ell}$; a projection MLP $P_{\pi}(\cdot)$ maps them into the VFM feature space. 
+                        </p>
+                        <p>
+                            We minimize a cosine-similarity based alignment loss $\mathcal{L}_{\mathrm{VRA}} = -\tfrac{1}{N}\sum_{i=1}^{N} \operatorname{sim}(\mathbf{y}_i, P_{\pi}(\mathbf{e}^{\mathrm{img}}_{i,\ell}))$, encouraging retention of fine-grained semantics that would otherwise collapse under pure instruction tuning. The overall objective combines texture generation loss $\mathcal{L}_{\mathrm{LM}}$ with the proposed VRA loss $\mathcal{L}_{\mathrm{VRA}}$, improving spatial reasoning and grounding without degrading language modeling quality.
+                        </p>
+                    </div>
+                    <div class="col-right img">
+                        <div class="image-container">
+                            <img src="images/viral_architecture.png" class="image-item img large-image z-depth-1" alt="VIRAL framework illustration">
+                            <!-- <p class="image-caption">Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p> -->
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="visual-representation-alignment" class="section">
                 <h2>Effect of visual representation alignment</h2>
 
-                <p>We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
+                <p>Our method consistently boosts MLLM performance on vision-centric tasks by aligning intermediate visual features with a strong vision encoder. Gains persist even with SigLIPv2, showing that regularizing visual representations benefits MLLMs beyond compensating for contrastive pretraining limits.</p>
                 <div class="image-container">
-                    <img src="images/viral_alignment_table.png" class="img large-image">
+                    <img src="images/viral_alignment_table.png" class="img medium-image">
                     <p class="image-caption">We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
                 </div>
 
-                <p>The left part presents PCA visualizations of intermediate representations, demonstrating that VIRAL yields more structured, semantically meaningful visual embeddings. The right part illustrates instance counting and spatial relation tasks, highlighting scenarios where VIRAL correctly answers questions while the baseline fails.</p>
+                <p>With VIRAL, performance on vision-centric tasks like counting and spatial reasoning improves significantly, outperforming LLaVA-7B-1.5 on challenging visual questions.</p>
                 <div class="image-container">
                     <img src="images/viral_qual.png" class="img large-image">
                     <p class="image-caption">The left part presents PCA visualizations of intermediate representations, demonstrating that VIRAL yields more structured, semantically meaningful visual embeddings. The right part illustrates instance counting and spatial relation tasks, highlighting scenarios where VIRAL correctly answers questions while the baseline fails.</p>
@@ -303,9 +242,9 @@
             <section id="ablation-studies" class="section">
                 <h2>Ablation study on key design components</h2>
 
-                <p>We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
+                <p>We identify optimal visual features and layers for aligning MLLM representations. We adopt DINOv2 as the default encoder. Layer-wise analysis shows the 16th layer yields the best results, with single-layer alignment outperforming multi-layer targets. Finally, we compare direct feature alignment with relation-based objectives over self-similarity matrices.</p>
                 <div class="image-container">
-                    <img src="images/viral_ablation_study.png" class="img large-image">
+                    <img src="images/viral_ablation_study.png" class="img medium-image">
                     <p class="image-caption">We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
                 </div>
             </section>
@@ -313,32 +252,45 @@
             <section id="analysis" class="section">
                 <h2>Analysis</h2>
 
-                <p>Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</p>
-                <div class="image-container">
-                    <img src="images/viral_attention_anlaysis.png"
-                        class="image-item img large-image z-depth-1">
-                    <p class="image-caption">Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</p>
-                </div>
+                <p>We also provide various analyses to demonstrate the effectiveness of our method using the visual representation alignment loss.</p>
                 
-                 <p>Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE and (b) CV-Bench$^\mathrm{2D}$. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</p>
-                <div class="image-container">
-                    <img src="images/viral_training_efficiency.png"
-                        class="image-item img large-image z-depth-1">
-                    <p class="image-caption">Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE and (b) CV-Bench$^\mathrm{2D}$. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</p>
-                </div>
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                        <div class="slide">
+                            <img src="images/viral_attention_anlaysis.png"
+                                class="comparison-slideshow-image">
+                            <div class="image-caption">Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/viral_training_efficiency.png"
+                                class="comparison-slideshow-image">
+                            <div class="image-caption">Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE and (b) CV-Bench$^\mathrm{2D}$. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</div>
+                        </div>
 
-                 <p>Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</p>
-                <div class="image-container">
-                    <img src="images/viral_permutation.png"
-                        class="image-item img large-image z-depth-1">
-                    <p class="image-caption">Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</p>
+                        <div class="slide">
+                            <img src="images/viral_permutation.png"
+                                class="comparison-slideshow-image">
+                            <div class="image-caption">Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</div>
+                        </div>
+                    </div>
+
+                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slideshow-controls">
+                        <button class="play-pause" onclick="togglePlayPause()">
+                            <i class="fa fa-pause"></i>
+                        </button>
                 </div>
             </section>
+                
+                
 
             <section id="conclusion" class="section">
                 <h2>Conclusion</h2>
 
-                <p>In this work, we propose \ours, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</p>
+                <p>In this work, we propose VIRAL, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</p>
             </section>
 
             <div class="citation add-top-padding">
