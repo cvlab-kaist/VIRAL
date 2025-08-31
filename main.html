@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Describe Anything: Detailed Localized Image and Video Captioning</title>
+    <title>VIRAL: Visual Representation Alignment for Multimodal Large Language Models</title>
 
     <!-- Favicon references -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -13,19 +13,19 @@
         content="Describe Anything: Detailed Localized Image and Video Captioning"
         name="description" />
     <meta
-        content="Describe Anything: Detailed Localized Image and Video Captioning"
+        content="VIRAL: Visual Representation Alignment for Multimodal Large Language Models"
         property="og:title" />
     <meta
-        content="Describe Anything: Detailed Localized Image and Video Captioning"
+        content="VIRAL: Visual Representation Alignment for Multimodal Large Language Models"
         property="og:description" />
     <meta content="https://describe-anything.github.io/images/slideshow/slide1_full.jpg" property="og:image" />
     <meta
-        content="Describe Anything: Detailed Localized Image and Video Captioning"
+        content="VIRAL: Visual Representation Alignment for Multimodal Large Language Models"
         property="twitter:title" />
     <meta
-        content="Describe Anything: Detailed Localized Image and Video Captioning"
+        content="VIRAL: Visual Representation Alignment for Multimodal Large Language Models"
         property="twitter:description" />
-    <meta content="https://describe-anything.github.io/images/slideshow/slide1_full.jpg" property="twitter:image" />
+    <!-- <meta content="https://describe-anything.github.io/images/slideshow/slide1_full.jpg" property="twitter:image" /> -->
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -36,7 +36,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap"
         rel="stylesheet">
-    <link href="style.css?v=v3" rel="stylesheet" type="text/css" />
+    <link href="style.css?" rel="stylesheet" type="text/css" />
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 </head>
 
 <body>
@@ -45,10 +59,11 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li><a href="#abstract">Overview</a></li>
-                    <li><a href="#task-definition">DLC Task</a></li>
-                    <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#data-pipeline">Data</a></li>
-                    <li><a href="#dlc-bench">Benchmark</a></li>
+                    <li><a href="#pilot-study">Pilot study</a></li>
+                    <li><a href="#framework">Framework</a></li>
+                    <li><a href="#visual-representation-alignment">Methods</a></li>
+                    <li><a href="#ablation-studies">Ablation Studies</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
                     <li><a href="#citation">Citation</a></li>
                 </ul>
             </nav>
@@ -58,23 +73,23 @@
     <div class="hero-section">
         <div class="container">
             <div class="title-row">
-                <h1 class="title"><span class="gradient-text">Describe Anything</span>: Detailed Localized Image and Video Captioning</h1>
-                <h1 class="subtitle">ICCV 2025</h1>
+                <h1 class="title"><span class="gradient-text">VIRAL</span>: Visual Representation Alignment for Multimodal Large Language Models</h1>
+                <h1 class="subtitle">arXiv 2025</h1>
             </div>
             <div class="base-row author-row">
                 <div class="base-col author-col">
-                    <a href="https://tonylian.com" target="_blank" class="author-text">
-                        Long Lian<sup>1,2</sup>
+                    <a target="_blank" class="author-text">
+                        Heeji Yoon<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://research.nvidia.com/person/yifan-ding" target="_blank" class="author-text">
-                        Yifan Ding<sup>1</sup>
+                    <a href="https://crepejung00.github.io/" target="_blank" class="author-text">
+                        Jaewoo Jung<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://gyhandy.github.io/" target="_blank" class="author-text">
-                        Yunhao Ge<sup>1</sup>
+                    <a href="https://junwankimm.github.io/" target="_blank" class="author-text">
+                        Junwan Kim<sup>1</sup>
                     </a>
                 </div>
                 <div class="base-col author-col">
@@ -122,38 +137,18 @@
             </div>
             <div class="base-row author-row">
                 <div class="base-col author-col affiliations">
-                    <sup>1</sup>NVIDIA &nbsp;&nbsp; <sup>2</sup>UC Berkeley &nbsp;&nbsp; <sup>3</sup>UCSF
+                    <sup>1</sup>KAIST AI &nbsp;&nbsp; <sup>2</sup>UC Berkeley &nbsp;&nbsp; <sup>3</sup>UCSF
                 </div>
             </div>
             <div class="link-labels base-row">
-                <div class="base-col icon-col"><a href="https://arxiv.org/abs/2504.16072" target="_blank"
+                <div class="base-col icon-col"><a href="" target="_blank"
                         class="link-block">
                         <i class="fa fas fa-file-text main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Paper</strong>
                     </a></div>
-                <!-- <div class="base-col icon-col"><a href='https://describe-anything.github.io/'
-                        class="link-block">
-                        <i class="fa fa-home main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Project Page</strong>
-                    </a></div> -->
-                <div class="base-col icon-col"><a href='#video'
-                        class="link-block">
-                        <i class="fa fa-video-camera main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Video</strong>
-                    </a></div>
-                <div class="base-col icon-col"><a href='https://huggingface.co/spaces/nvidia/describe-anything-model-demo'
-                        class="link-block">
-                        <i class="fa fa-cube main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Interactive Demo</strong>
-                    </a></div>
-                <div class="base-col icon-col"><a href='https://github.com/NVlabs/describe-anything' class="link-block">
+                <div class="base-col icon-col"><a href='' class="link-block">
                         <i class="fa fa-github main-icon" style="font-size: 60px"></i>
                         <strong class="link-labels-text">Code</strong>
-                    </a></div>
-                <div class="base-col icon-col"><a href="https://huggingface.co/collections/nvidia/describe-anything-680825bb8f5e41ff0785834c"
-                        class="link-block">
-                        <i class="fa fa-database main-icon" style="font-size: 60px"></i>
-                        <strong class="link-labels-text">Models/Data/Benchmark</strong>
                     </a></div>
                 <div class="base-col icon-col"><a href="#citation" class="link-block">
                         <i class="fa fa-graduation-cap main-icon" style="font-size: 60px"></i>
@@ -167,14 +162,14 @@
     <main class="main-content">
         <div class="container">
             <div class="tldr">
-                <b>TL;DR</b>: Our Describe Anything Model (DAM) generates detailed descriptions for user-specified regions in images and videos, marked by points, boxes, scribbles, or masks. We introduce DLC-Bench to evaluate such region-based descriptions.
+                <b>TL;DR</b>: VIsual Representation ALignment (VIRAL) is a simple but effective regularization strategy that aligns the internal visual representations of MLLMs with those from pretrained vision foundation models.
             </div>
-            
-            <section id="additional-examples" class="section" style="margin: -1rem 0 -2rem 0;">
-                <!-- <h2>High-quality Captions in Challenging Scenes</h2>
+
+            <!--<section id="additional-examples" class="section" style="margin: -1rem 0 -2rem 0;">
+                <h2>High-quality Captions in Challenging Scenes</h2>
 
                 <p>Our model is able to generate high-quality detailed localized captions for diverse regions, including the main objects, small objects in the background, and regions in cluttered scenes.</p>
-                 -->
+
                 <div class="slideshow-container">
                     <div class="slideshow">
                         <div class="slide">
@@ -248,241 +243,108 @@
                         </button>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <div id="abstract" class="base-row section">
-                <h2>Introducing the Describe Anything Model (DAM)</h2>
+                <h2>Introducing the VIsual Representation Alignment (VIRAL)</h2>
                 <p class="paragraph">
-                    The Describe Anything Model (DAM) is a powerful multimodal large language model that can generate detailed descriptions for specific regions in images or videos. Users can specify regions using points, boxes, scribbles, or masks, and DAM will provide rich, contextual descriptions of those regions. Watch our intro video below to learn more about DAM.
+                    We propose a novel framework, <strong>VIsual Representation ALignment (VIRAL)</strong>, which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substatntial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.
                 </p>
             </div>
 
-            <div id="video" class="base-row">
-                <div class="video-container main-video-container">
-                    <video class="slideshow-video align-bottom main-video" controls poster="images/slideshow/slide1_full.jpg">
-                        <source src="images/video.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="play-button-overlay">
-                        <i class="fa fa-play"></i>
+            <div class="image-container">
+                    <div class="image-content">
+                        <img src="images/viral_teaser.png" class="img large-image">
                     </div>
-                    <!-- <div class="unmute-overlay" onclick="toggleMute(this)">
-                        <i class="fa fa-volume-off"></i>
-                        <span class="unmute-text">Click to unmute</span>
-                    </div> -->
-                </div>
+
+                    <p class="image-caption">We propose a novel framework, <strong>VIsual Representation ALignment (VIRAL)</strong>, which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substatntial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.<br/> </p>
             </div>
 
             
 
-            <section id="task-definition" class="section">
-                <h2>Detailed Localized Captioning (DLC)</h2>
+            <section id="pilot-study" class="section">
+                <h2>Pilot study</h2>
 
-                <p>Detailed Localized Captioning (DLC) is the task of generating comprehensive and context-aware descriptions of specific regions within an image. Unlike traditional image captioning, which summarizes the entire scene in broad strokes, DLC dives deeper into the finer details of a user-specified area. The goal is to capture not only the object's name or category but also subtle attributes such as texture, color patterns, shape, notable parts, and any visually distinctive features.</p>
+                <p>Paragraph of pilot study: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/slideshow/slide1.jpg" class="img large-image">
+                        <img src="images/viral_pilot_study.png" class="img large-image">
                     </div>
-                    <p class="image-caption"><strong>Describe Anything Model (DAM)</strong> performs detailed localized captioning (DLC), generating <strong>detailed</strong> and <strong>localized</strong> descriptions for user-specified regions within <em>images</em>. DAM accepts various user inputs for region specification, including clicks, scribbles, boxes, and masks.<br/> <span class="image-credit">(Image credit: Markus Trienke (CC BY-SA 2.0))</span></p>
-                </div>
-
-                <p>DLC extends naturally to videos by describing how a specified region's appearance and context change over time. Models must track the target across frames, capturing evolving attributes, interactions, and subtle transformations.</p>
-                <div class="image-container">
-                    <video class="slideshow-video align-bottom" autoplay muted loop poster="images/slideshow/slide2.jpg">
-                        <source src="images/video_example.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p class="image-caption"><strong>Describe Anything Model (DAM)</strong> can also perform detailed localized video captioning, describing how a specified region changes over time. For localized <em>video</em> descriptions, specifying the region on <em>only a single frame</em> is sufficient. See our paper for full descriptions.<br/> <span class="image-credit">(Video credit: MOSE Dataset (CC BY-NC-SA 4.0))</span></p>
+                    <p class="image-caption">Pilot study caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>
                 </div>
             </section>
 
-            <section id="highly-detailed-captioning" class="section">
-                <h2>Highly Detailed Image and Video Captioning</h2>
+            <section id="framework" class="section">
+                <h2>Illustration of our framework</h2>
 
-                <p>Our method excels at producing detailed descriptions of objects in both images and videos. By balancing the clarity of a focal region with global context, the model can highlight subtle features—like intricate patterns or changing textures—far beyond what general image-level captioning provides.</p>
+                <p>Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide3.jpg"
-                        class="image-item img large-image z-depth-1">
-                    <p class="image-caption">Compared to prior works, the description from our <strong>Describe Anything Model (DAM)</strong> is more detailed and accurate. <span class="image-credit">(Image credit: SAM Materials (CC BY-SA 4.0))</span></p>
+                    <img src="images/viral_architecture.png" class="image-item img large-image z-depth-1">
+                    <p class="image-caption">Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p>
                 </div>
             </section>
 
-            <section id="instruction-controlled-captioning" class="section">
-                <h2>Instruction-controlled Captioning</h2>
+            <section id="visual-representation-alignment" class="section">
+                <h2>Effect of visual representation alignment</h2>
 
-                <p>Users can guide our model to produce descriptions of varying detail and style. Whether a brief summary or a long, intricate narrative is needed, the model can adapt its output. This flexibility benefits diverse use cases, from rapid labeling tasks to in-depth expert analyses.</p>
+                <p>We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide4.jpg"
-                        class="image-item img large-image z-depth-1">
-                    <p class="image-caption"><strong>Describe Anything Model (DAM)</strong> can generate descriptions of varying detail and style according to user instructions.<br/> <span class="image-credit">(Image credit: SAM Materials (CC BY-SA 4.0))</span></p>
+                    <img src="images/viral_alignment_table.png" class="img large-image">
+                    <p class="image-caption">We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
+                </div>
+
+                <p>The left part presents PCA visualizations of intermediate representations, demonstrating that VIRAL yields more structured, semantically meaningful visual embeddings. The right part illustrates instance counting and spatial relation tasks, highlighting scenarios where VIRAL correctly answers questions while the baseline fails.</p>
+                <div class="image-container">
+                    <img src="images/viral_qual.png" class="img large-image">
+                    <p class="image-caption">The left part presents PCA visualizations of intermediate representations, demonstrating that VIRAL yields more structured, semantically meaningful visual embeddings. The right part illustrates instance counting and spatial relation tasks, highlighting scenarios where VIRAL correctly answers questions while the baseline fails.</p>
                 </div>
             </section>
 
-            <section id="zero-shot-regional-qa" class="section">
-                <h2>Zero-shot Regional QA</h2>
+            <section id="ablation-studies" class="section">
+                <h2>Ablation study on key design components</h2>
 
-                <p>Beyond descriptions, our model can answer questions about a specified region without extra training data. Users can ask about the region's attributes, and the model draws on its localized understanding to provide accurate, context-driven answers. This capability enhances natural, interactive use cases.</p>
+                <p>We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide5.jpg"
-                        class="image-item img large-image z-depth-1">
+                    <img src="images/viral_ablation_study.png" class="img large-image">
+                    <p class="image-caption">We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
                 </div>
             </section>
 
-            <section id="architecture" class="section">
-                <h2>Architecture of Describe Anything Model (DAM)</h2>
+            <section id="analysis" class="section">
+                <h2>Analysis</h2>
 
-                <p>Our architecture uses a "Focal Prompt" to provide both the full image and a zoomed-in view of the target region. This approach ensures the model sees fine details while retaining global context. The result is detailed, accurate captions that reflect both the bigger picture and the smallest nuances.</p>
+                <p>Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide6.jpg"
+                    <img src="images/viral_attention_anlaysis.png"
                         class="image-item img large-image z-depth-1">
-                    <p class="image-caption"><span class="image-credit">Image credit: Objects365 Dataset (CC BY 4.0)</span></p>
+                    <p class="image-caption">Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</p>
                 </div>
                 
-                <p>We introduce a localized vision backbone that integrates global and focal features. Images and masks are aligned spatially, and gated cross-attention layers fuse detailed local cues with global context. New parameters are initialized to zero, preserving pre-trained capabilities. This design yields richer, more context-aware descriptions.</p>
-                <div class="image-container" style="display: flex; justify-content: center;">
-                    <img src="images/slideshow/slide7.jpg"
-                        class="image-item img large-image z-depth-1" style="max-width: 500px; width: 50%;">
-                </div>
-            </section>
-
-            <section id="data-pipeline" class="section">
-                <h2>Semi-supervised Data Pipeline for Detailed Localized Captioning (DLC-SDP)</h2>
-
-                <p>Because existing datasets lack detailed localized descriptions, we devised a two-stage pipeline. First, we use a VLM to expand short class labels from segmentation datasets into rich descriptions. Second, we apply self-training as a form of semi-supervised learning on unlabeled images, using our model to generate and refine new captions. This scalable approach builds large, high-quality training data without relying on extensive human annotation.</p>
+                 <p>Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE and (b) CV-Bench$^\mathrm{2D}$. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide8.jpg"
+                    <img src="images/viral_training_efficiency.png"
                         class="image-item img large-image z-depth-1">
+                    <p class="image-caption">Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE and (b) CV-Bench$^\mathrm{2D}$. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</p>
                 </div>
-            </section>
 
-            <section id="dlc-bench" class="section">
-                <h2>DLC-Bench: A Benchmark for Detailed Localized Captioning</h2>
-
-                <p>We introduce DLC-Bench, a benchmark that uses an LLM-based judge to evaluate a model's region-based descriptions. Instead of relying on simple text overlap, DLC-Bench checks for correct details and the absence of errors. This offers a more accurate and human-like metric for measuring DLC performance.</p>
+                 <p>Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</p>
                 <div class="image-container">
-                    <img src="images/slideshow/slide9.jpg"
+                    <img src="images/viral_permutation.png"
                         class="image-item img large-image z-depth-1">
-                    <p class="image-caption">In DLC-Bench, a captioning model is prompted to describe a specified image region. The generated description is then evaluated by querying an LLM Judge. Points are assigned or deducted based on the LLM's response. The question we show is an example of positive questions.<br/> <span class="image-credit">(Image credit: Objects365 Dataset (CC BY 4.0))</span></p>
-                </div>
-            </section>
-
-            <section id="table-advantages" class="section">
-                <h2>Advantages of DAM, DLC-SDP, and DLC-Bench</h2>
-                <div class="table-container">
-                    <table class="advantages-table">
-                        <thead>
-                            <tr>
-                                <th>Component</th>
-                                <th>Previous Practice</th>
-                                <th>Problem</th>
-                                <th>Our Solution</th>
-                                <th>Advantages</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Describe Anything Model (DAM)</strong></td>
-                                <td>Extracting regional features from global image features</td>
-                                <td>Regional details already lost in image feature extraction and not provided to the LLM</td>
-                                <td>Providing <strong>focal prompt</strong> to proposed <strong>localized vision backbone</strong></td>
-                                <td>Detail-rich contextful features allowing for accurate, multi-granular localized descriptions</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2"><strong>SSL Data Pipeline (DLC-SDP)</strong></td>
-                                <td>Query a data curation VLM with referring <strong>boxes</strong> and <strong>global image captions</strong></td>
-                                <td>Imprecise referring to data curation model</td>
-                                <td>Reframe the query into a <strong>mask</strong>-referred <strong>keyword</strong> expansion question</td>
-                                <td>Leverage high-quality precise human annotated regional masks and keywords</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Fully supervised learning</strong></td>
-                                <td>Limited data with high annotation quality</td>
-                                <td><strong>Semi-supervised learning</strong></td>
-                                <td>Scalable to diverse web-scale unlabeled datasets</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Benchmark (DLC-Bench)</strong></td>
-                                <td>Pred caption + <strong>reference GT caption</strong> → language-based similarity metrics or LLM scorer</td>
-                                <td>Incorrect hallucination penalty for correct details not present in the reference caption</td>
-                                <td>Pred caption + <strong>query for positive/negative attributes</strong> → LLM scorer</td>
-                                <td>Accurate detail and hallucination assessment without relying on reference captions</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <section id="comparison" class="section">
-                <h2>Comparison</h2>
-
-                <p>On DLC-Bench, our model outperforms existing solutions by producing more detailed and accurate localized descriptions with less hallucination. It surpasses models trained for general image-level tasks and those designed for localized reasoning, setting a new standard for detailed, context-rich captioning.</p>
-
-                <div class="slideshow-container">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="images/results/1.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                <b>Accuracies on detailed localized captioning in our proposed DLC-Bench.</b> DAM outperforms previous API-only models, open-source models, and region-specific VLMs on detailed localized captioning. <span class="image-credit"><u>Underlined</u>: the second-best method. †: models with thinking mode.</span>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/results/2.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                <b>Detailed localized video captioning on HC-STVG.</b> DAM outperforms previous models on detailed localized video captioning. <span class="image-credit">†: models with thinking mode.</span>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/results/3.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                <b>Performance on detailed localized video description on VideoRefer-Bench-D.</b> †: We provide analysis on hallucination scores (HD) in our quantitative results and reference captions sections. *: trained on in-domain VideoRefer-700k with regard to VideoRefer-Bench, both sourcing videos from Panda-70M.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/results/4.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                LVIS and PACO open-class <b>keyword-level</b> captioning benchmarks. DAM excels particularly in the challenging PACO benchmark that requires distinguishing between objects and parts.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/results/5.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                Zero-shot evaluation on <b>phrase-level</b> dataset Flickr30k Entities. Our model achieves 7.34% average relative improvement against previous best.
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="images/results/6.png" class="comparison-slideshow-image">
-                            <div class="image-caption">
-                                Zero-shot evaluation on the <b>detailed captioning</b> dataset Ref-L4. Our method achieves 39.5% and 13.1% average relative improvement on the short/long language-based captioning metrics, respectively.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="slideshow-nav prev" onclick="changeSlide(-1)">❮</button>
-                    <button class="slideshow-nav next" onclick="changeSlide(1)">❯</button>
-                    
-                    <div class="slideshow-controls">
-                        <button class="play-pause" onclick="togglePlayPause()">
-                            <i class="fa fa-pause"></i>
-                        </button>
-                    </div>
+                    <p class="image-caption">Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</p>
                 </div>
             </section>
 
             <section id="conclusion" class="section">
                 <h2>Conclusion</h2>
 
-                <p>Our <strong>Describe Anything Model (DAM)</strong> generates detailed descriptions for specified regions in images and videos, and can be utilized in various applications ranging from data annotation to serving as an intermediate component in downstream tasks. We plan to publicly release our code, models, data, and benchmark to support future research. We are excited to see the community explore the potential of detailed localized captioning. We hope this benchmark and model will serve as a useful resource for future research in this area.</p>
+                <p>In this work, we propose \ours, a simple yet effective training strategy that aligns the internal visual representations of MLLMs with those from powerful vision foundation models. Our approach preserves fine-grained visual semantics often discarded under text-only supervision, enabling more accurate spatial reasoning and object grounding. Extensive experiments across diverse benchmarks validate the effectiveness and generality of our method, demonstrating that visual representation alignment significantly enhances both performance and training efficiency in multimodal learning.</p>
             </section>
 
             <div class="citation add-top-padding">
                 <h1 id="citation">Citation</h1>
                 <p> If you use this work or find it helpful, please consider citing: </p>
-                <pre id="codecell0">@article{lian2025describe,
-    title={Describe Anything: Detailed Localized Image and Video Captioning}, 
-    author={Long Lian and Yifan Ding and Yunhao Ge and Sifei Liu and Hanzi Mao and Boyi Li and Marco Pavone and Ming-Yu Liu and Trevor Darrell and Adam Yala and Yin Cui},
-    journal={arXiv preprint arXiv:2504.16072},
-    year={2025}
-}</pre>
+                <pre id="codecell0"></pre>
             </div>
         </div>
     </main>
