@@ -257,8 +257,108 @@
                 <h2>Effect of visual representation alignment</h2>
 
                 <p>Our method consistently boosts MLLM performance on vision-centric tasks by aligning intermediate visual features with a strong vision encoder. Gains persist even with SigLIPv2, showing that regularizing visual representations benefits MLLMs beyond compensating for contrastive pretraining limits.</p>
-                <div class="image-container">
+                <!-- <div class="image-container">
                     <img src="images/viral_alignment_table.png" class="img medium-image" alt="Alignment table">
+                    <p class="image-caption">We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
+                </div> -->
+
+
+                <div class="table-container">
+                    <table class="advantages-table">
+                        <thead>
+                            <tr>
+                                <th class="model-col">Language Model</th>
+                                <th class="model-col">Vision Encoder</th>
+                                <th class="vra-col">VRA Loss</th>
+                                <th>CV-Bench<sup>2D</sup></th>
+                                <th>MMVP</th>
+                                <th>What's Up</th>
+                                <th>POPE</th>
+                                <th>MMStar</th>
+                                <th>MME</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-col" rowspan="4"><strong>Vicunna-7B-1.5</strong></td>
+                                <td class="model-col" rowspan="2">CLIP</td>
+                                <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
+                                <td>56.82%</td>
+                                <td>28.20%</td>
+                                <td>40.13%</td>
+                                <td>86.90%</td>
+                                <td><strong>33.93%</strong></td>
+                                <td>1650.21</td>
+                            </tr>
+                            <tr>
+                                <td class="vra-col"><i class="fa fa-check vra-yes" aria-label="VRA on"></i></td>
+                                <td><strong>59.67%</strong></td>
+                                <td><strong>33.33%</strong></td>
+                                <td><strong>48.55%</strong></td>
+                                <td><strong>87.43%</strong></td>
+                                <td><strong>33.93%</strong></td>
+                                <td><strong>1694.52</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="model-col" rowspan="2">SigLipv2</td>
+                                <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
+                                <td>58.90%</td>
+                                <td>28.22%</td>
+                                <td>40.90%</td>
+                                <td>90.13%</td>
+                                <td>37.20%</td>
+                                <td>1738.96</td>
+                            </tr>
+                            <tr>
+                                <td class="vra-col"><i class="fa fa-check vra-yes" aria-label="VRA on"></i></td>
+                                <td><strong>62.66%</strong></td>
+                                <td><strong>33.11%</strong></td>
+                                <td><strong>44.40%</strong></td>
+                                <td><strong>90.77%</strong></td>
+                                <td><strong>37.20%</strong></td>
+                                <td><strong>1835.62</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="model-col" rowspan="4"><strong>Vicunna-13B-1.5</strong></td>
+                                <td class="model-col" rowspan="2">CLIP</td>
+                                <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
+                                <td>57.51%</td>
+                                <td>39.33%</td>
+                                <td>44.44%</td>
+                                <td>87.12%</td>
+                                <td>34.47%</td>
+                                <td>1599.04</td>
+                            </tr>
+                            <tr>
+                                <td class="vra-col"><i class="fa fa-check vra-yes" aria-label="VRA on"></i></td>
+                                <td><strong>58.97%</strong></td>
+                                <td><strong>45.33%</strong></td>
+                                <td><strong>62.26%</strong></td>
+                                <td><strong>87.79%</strong></td>
+                                <td><strong>37.99%</strong></td>
+                                <td><strong>1636.62</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="model-col" rowspan="2">SigLipv2</td>
+                                <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
+                                <td>58.90%</td>
+                                <td>28.22%</td>
+                                <td>40.90%</td>
+                                <td>90.13%</td>
+                                <td>37.20%</td>
+                                <td>1738.96</td>
+                            </tr>
+                            <tr>
+                                <td class="vra-col"><i class="fa fa-check vra-yes" aria-label="VRA on"></i></td>
+                                <td><strong>62.66%</strong></td>
+                                <td><strong>33.11%</strong></td>
+                                <td><strong>44.40%</strong></td>
+                                <td><strong>90.77%</strong></td>
+                                <td><strong>37.20%</strong></td>
+                                <td><strong>1835.62</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p class="image-caption">We report results of models trained with and without $\mathcal{L}_{\text{VRA}}$ across different vision encoders, evaluated on both vision-centric and general multimodal benchmarks. $\mathcal{L}_{\text{VRA}}$ consistently improves performance regardless of the encoder.</p>
                 </div>
 

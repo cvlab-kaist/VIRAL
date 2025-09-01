@@ -740,34 +740,59 @@ pre {
 }
 
 .advantages-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
-    line-height: 1.5;
+  width: 90%;
+  border-collapse: collapse;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto; /* center within container */
 }
 
 .advantages-table th,
 .advantages-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-    vertical-align: top;
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 500;
+  padding: 0.5rem;
+  text-align: center; /* default center */
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle; /* vertical center */
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 500;
 }
+
+/* Vertical divider after VRA Loss column */
+.advantages-table .vra-col {
+  width: 60px; /* adjust narrower width */
+  max-width: 60px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  border-right: 2px solid var(--border-color);
+}
+
+/* Narrow left model column */
+.advantages-table .model-col {
+  width: 150px; /* adjust narrower width */
+  max-width: 150px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+/* Simple VRA on/off icon colors */
+.advantages-table .vra-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
+.advantages-table .vra-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
+
+@media (max-width: 768px) {
+  .advantages-table .model-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
+}
+
+/* Remove double border on last vra cell if table ends */
 
 .advantages-table th {
     background-color: var(--light-bg);
     color: var(--primary-color);
 }
 
-.advantages-table tr:last-child td {
-    border-bottom: none;
-}
 
-.advantages-table td:first-child {
-    color: var(--primary-color);
-}
 
 .advantages-table strong {
     color: var(--accent-color);
