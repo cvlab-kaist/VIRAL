@@ -823,6 +823,45 @@ pre {
     display: none;
 }
 
+/* Title block with video */
+.title-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.title-text-block .title { margin-bottom: 0.35rem; }
+.title-text-block .subtitle { margin-top: 0; }
+
+.title-video {
+  height: 6rem;
+  width: 7rem;
+  object-fit: cover;
+  box-shadow: none; /* remove box feel */
+  flex: 0 0 auto;
+  margin-top: 4px;
+  border: 2px solid rgba(255,255,255,0.6); /* subtle ring, remove if unwanted */
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 860px) {
+  .title-video { height: 5rem; width: 6rem; }
+  .title-flex { gap: 5px; }
+}
+@media (max-width: 640px) {
+  .title-video { height: 5rem; width: 6rem; }
+  .title-flex { gap: 5px; }
+  .title-text-block .title { font-size: 2rem; }
+}
+@media (max-width: 500px) {
+  .title-video { height: 5rem; width: 6rem; margin-top: 2px; }
+  .title-flex { gap: 5px; }
+  .title-text-block .title { font-size: 1.85rem; }
+  .title-text-block .subtitle { font-size: 1.25rem; }
+}
+
 /* Two-column layout for framework section */
 .two-col {
   display: flex;
