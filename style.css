@@ -836,18 +836,18 @@ pre {
 .title-text-block .subtitle { margin-top: 0; }
 
 .title-video {
-  height: 6rem;
-  width: 7rem;
+  height: 5.3rem;
+  width: 6.2rem;
   object-fit: cover;
   box-shadow: none; /* remove box feel */
   flex: 0 0 auto;
   margin-top: 4px;
-  border: 2px solid rgba(255,255,255,0.6); /* subtle ring, remove if unwanted */
+  
   backdrop-filter: blur(2px);
 }
 
 @media (max-width: 860px) {
-  .title-video { height: 5rem; width: 6rem; }
+  .title-video { height: 4.5rem; width: 5.3rem; }
   .title-flex { gap: 5px; }
 }
 @media (max-width: 640px) {
