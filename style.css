@@ -721,7 +721,7 @@ pre {
 }
 
 .gradient-text {
-    background: linear-gradient(45deg, #007AFF, #5856D6, #AF52DE);
+    background: linear-gradient(45deg, #FF512F, #FF6F61, #DD2476);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -760,8 +760,8 @@ pre {
 
 /* Vertical divider after VRA Loss column */
 .advantages-table .vra-col {
-  width: 60px; /* adjust narrower width */
-  max-width: 60px;
+  width: 70px; /* adjust narrower width */
+  max-width: 70px;
   text-align: center;
   white-space: normal;
   word-break: keep-all;
