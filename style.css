@@ -126,6 +126,15 @@ p {
   text-decoration: underline;
 }
 
+/* --- Responsive author layout improvements --- */
+@media (max-width: 800px) {
+  .author-row { gap: 4px 10px; }
+  .author-row .author-col { flex: 0 0 48%; max-width: 48%; padding: 0 0px; margin: 0px 0; }
+}
+@media (max-width: 420px) {
+  .author-row .author-col { flex: 0 0 100%; max-width: 100%; padding: 0 0px; margin: 0px 0; }
+}
+
 .link-labels {
   display: flex;
   flex-wrap: wrap;
@@ -875,20 +884,43 @@ pre {
   backdrop-filter: blur(2px);
 }
 
+/* Desktop-only line break inside title */
+.title-break { display: inline; }
+@media (min-width: 801px) { /* large screens: force break */
+  .title-break { display: block; height: 0; }
+}
+@media (max-width: 800px) { /* mobile/tablet: keep inline */
+  .title-break { display: inline; }
+}
+
 @media (max-width: 860px) {
   .title-video { height: 4.5rem; width: 5.3rem; }
   .title-flex { gap: 5px; }
 }
 @media (max-width: 640px) {
   .title-video { height: 5rem; width: 6rem; }
-  .title-flex { gap: 5px; }
-  .title-text-block .title { font-size: 2rem; }
+  .title-flex { gap: 6px; flex-direction: column; align-items: center; }
+  .title-text-block { display: flex; flex-direction: column; align-items: center; }
+  .title-text-block .title { font-size: 1.85rem; text-align: center; }
+  .title-text-block .subtitle { font-size: 1.05rem; text-align: center; }
+  .author-text { font-size: 1.05rem; }
+  .nav-links a { font-size: 0.95rem; }
+  .nav-links li { margin: 0 8px 6px; }
 }
 @media (max-width: 500px) {
-  .title-video { height: 5rem; width: 6rem; margin-top: 2px; }
-  .title-flex { gap: 5px; }
-  .title-text-block .title { font-size: 1.85rem; }
-  .title-text-block .subtitle { font-size: 1.25rem; }
+  .title-video { height: 4.8rem; width: 5.6rem; margin-top: 0; }
+  .title-flex { gap: 8px; }
+  .title-text-block .title { font-size: 1.5rem; text-align: center; }
+  .title-text-block .subtitle { font-size: 0.95rem; text-align: center; }
+  .author-text { font-size: 0.95rem; }
+  .nav-links a { font-size: 0.85rem; }
+  .site-header { padding: 6px 0; }
+}
+@media (max-width: 400px) {
+  .title-video { height: 4.2rem; width: 5rem; }
+  .title-text-block .title { font-size: 1.5rem; }
+  .author-text { font-size: 0.9rem; }
+  .nav-links a { font-size: 0.8rem; }
 }
 
 /* Two-column layout for framework section */
