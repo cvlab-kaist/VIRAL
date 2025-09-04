@@ -163,7 +163,7 @@
             </div>
             <div class="base-row author-row">
                 <div class="base-col author-col affiliations">
-                    <sup>1</sup>KAIST AI &nbsp;&nbsp; <sup>2</sup>NYU &nbsp;&nbsp; <sup>3</sup>Korea University &nbsp;&nbsp; <sup>4</sup>ETH Zurich &nbsp;&nbsp; <sup>5</sup> Chung-Ang University
+                    <sup>1</sup>KAIST AI &nbsp;&nbsp; <sup>2</sup>NYU &nbsp;&nbsp; <sup>3</sup> Chung-Ang University &nbsp;&nbsp; <sup>4</sup>Korea University &nbsp;&nbsp; <sup>5</sup>ETH Zurich 
                     <br>
                     <sup>*</sup>Co-first authors &nbsp;&nbsp; <sup>&dagger;</sup>Co-corresponding authors
                 </div>
@@ -202,7 +202,7 @@
 
             <div class="image-container">
                     <div class="image-content">
-                        <img src="images/viral_teaser.png" class="img large-image" alt="VIRAL teaser">
+                        <img src="images/viral_teaser_hd.png" class="img large-image" alt="VIRAL teaser">
                     </div>
 
                     <p class="image-caption">We propose <strong>VIsual Representation ALignment (VIRAL)</strong> for multi-modal large language models (MLLMs), which introduces an auxiliary regularization objective on visual features to prevent MLLMs from discarding fine-grained visual attributes during training. VIRAL consistently produces more accurate visually grounded responses and yields substantial improvements over standard visual instruction tuning baselines when employing diverse vision towers, including CLIP and SigLIPv2.</p>
@@ -216,7 +216,7 @@
                 <p>MLLMs trained with text-only loss often discard fine-grained visual details. To address this, residual feature injection and explicit Visual Representation Alignment (VRA) loss are proposed to preserve richer visual semantics in intermediate layers.</p>
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/viral_comparisons.png" class="img large-image" alt="Comparisons diagram">
+                        <img src="images/comparsions_archs.png" class="img large-image" alt="Comparisons diagram">
                     </div>
                     <p class="image-caption"> Comparisons of (a) baseline visual instruction tuning, (b) re-injecting visual features via a residual connection, and (c) visual representation alignment. Both (b) and (c) are applied at the 16-th layer. </p>
                 </div>
@@ -225,7 +225,7 @@
 
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/viral_comparisons_result.png" class="img large-image" alt="Results chart">
+                        <img src="images/comparisons_results.png" class="img large-image" alt="Results chart">
                     </div>
                     <p class="image-caption">(d): Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions denoting middle layers that are especially important for visual understanding. (e): Benchmark performance corresponding to (a-c) </p>
                 </div>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="col-right img">
                         <div class="image-container">
-                            <img src="images/viral_architecture.png" class="image-item img large-image z-depth-1" alt="VIRAL framework illustration">
+                            <img src="images/viral_architecture_hd.png" class="image-item img large-image z-depth-1" alt="VIRAL framework illustration">
                             <!-- <p class="image-caption">Building upon our findings in visual representation alignment, we align visual tokens from MLLM to strong, informative representations from VFMs.</p> -->
                         </div>
                     </div>
@@ -362,7 +362,7 @@
 
                 <p>With VIRAL, performance on vision-centric tasks like counting and spatial reasoning improves significantly, outperforming LLaVA-7B-1.5 on challenging visual questions.</p>
                 <div class="image-container">
-                    <img src="images/viral_qual.png" class="img large-image" alt="Qualitative examples">
+                    <img src="images/viral_qual_hd.png" class="img large-image" alt="Qualitative examples">
                     <p class="image-caption">The left part presents PCA visualizations of intermediate representations, demonstrating that VIRAL yields more structured, semantically meaningful visual embeddings. The right part illustrates instance counting and spatial relation tasks, highlighting scenarios where VIRAL correctly answers questions while the baseline fails.</p>
                 </div>
             </section>
@@ -400,6 +400,11 @@
                             <img src="images/viral_permutation.png"
                                 class="comparison-slideshow-image" alt="Permutation robustness bar chart">
                             <div class="image-caption">Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/vfm_pca.png"
+                                class="comparison-slideshow-image" alt="Permutation robustness bar chart">
+                            <div class="image-caption"></div>
                         </div>
                     </div>
 
