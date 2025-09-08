@@ -734,10 +734,10 @@ pre {
 /* #B7ADD1 */
 /* #C7DADF */
 /* #EDEDF4 */
+/* background: linear-gradient(45deg, #9578e4, #527f8c); */
+/* background: linear-gradient(45deg, #FF512F, #FF6F61, #DD2476); */
 .gradient-text {
     background: linear-gradient(45deg, #5d2fbf, #06c29c);
-    /* background: linear-gradient(45deg, #9578e4, #527f8c); */
-    /* background: linear-gradient(45deg, #FF512F, #FF6F61, #DD2476); */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

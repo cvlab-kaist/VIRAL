@@ -119,7 +119,7 @@
                     </a>
                 </div>
                 <div class="base-col author-col">
-                    <a href="https://scholar.google.com/citations?user=x1h8oWUAAAAJ&hl=ko" target="_blank" class="author-text">
+                    <a href="https://hyungyu-choi.github.io/" target="_blank" class="author-text">
                         Hyungyu Choi<sup>3</sup>
                     </a>
                 </div>
@@ -237,7 +237,7 @@
                 <h2>Pilot study</h2>
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="images/motivations.png" class="img large-image" alt="Comparisons diagram">
+                        <img src="images/motivations_final.png" class="img large-image" alt="Comparisons diagram">
                     </div>
                     <p class="image-caption"> (a) baseline visual instruction tuning, (b) re-injecting visual features from the <i>post</i>-projection layer, (c) re-injecting from the <i>pre</i>-projection layer, and (d) the proposed visual representation alignment. </p>
                     <p class="image-caption">(e) Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions highlighting middle layers that are especially important for visual understanding. (f) Benchmark performance corresponding to (a–d) </p>
@@ -436,7 +436,7 @@
 
                 <p>We identify optimal visual features and layers for aligning MLLM representations. We adopt DINOv2 as the default encoder. Layer-wise analysis shows the 16th layer yields the best results, with single-layer alignment outperforming multi-layer targets. Finally, we compare direct feature alignment with relation-based objectives over self-similarity matrices.</p>
                 <div class="image-container">
-                    <img src="images/viral_ablation_study.png" class="img medium-image" alt="Ablation study charts">
+                    <img src="images/viral_ablation_study_final.png" class="img medium-image" alt="Ablation study charts">
                     <p class="image-caption">We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
                 </div>
             </section>
@@ -449,19 +449,19 @@
                 <div class="slideshow-container">
                     <div class="slideshow">
                         <div class="slide">
-                            <img src="images/viral_attention_anlaysis.png"
+                            <img src="images/viral_attention_anlaysis_final.png"
                                 class="comparison-slideshow-image" alt="Attention analysis">
                             <div class="image-caption">Qualitative comparison on text-to-image attention maps (left) and quantified spatial entropy of attention across layers and heads (right). Applying visual representation alignment encourages model to attend to more contextually important content, yielding a more focused and structured attention pattern.</div>
                         </div>
                         
                         <div class="slide">
-                            <img src="images/viral_training_efficiency.png"
+                            <img src="images/viral_training_efficiency_final.png"
                                 class="comparison-slideshow-image" alt="Training efficiency curves">
                             <div class="image-caption">Performance with and without $\mathcal{L}_\mathrm{VRA}$ evaluated every 1K steps on (a) POPE, (b) CV-Bench$^\mathrm{2D}$ and (c) MMVP. Improved early-stage performance with $\mathcal{L}_\mathrm{VRA}$ indicates that VIRAL facilitates faster convergence.</div>
                         </div>
 
                         <div class="slide">
-                            <img src="images/token_permutation.png"
+                            <img src="images/token_permutation_final.png"
                                 class="comparison-slideshow-image" alt="Permutation robustness bar chart">
                             <div class="image-caption">Number of correct predictions out of 788 spatial reasoning tasks in CV-Bench$^\mathrm{2D}$. Models with $\mathcal{L}_\mathrm{VRA}$ show larger performance drops under random permutation, indicating stronger sensitivity to spatial relationships.</div>
                         </div>
