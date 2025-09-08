@@ -201,7 +201,7 @@ p {
 
 .image-container {
   margin: 2rem 0;
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem 1rem; /* bottom 1rem → 0.5rem */
   position: relative;
   border-radius: 12px;
   box-shadow: var(--shadow);
@@ -221,7 +221,7 @@ p {
 }
 
 .image-content {
-  padding: 15px;
+  padding: 12px 12px -30px;          
 }
 
 .img, 
@@ -594,7 +594,7 @@ pre {
 
 .slideshow {
     position: relative;
-    height: 450px;
+    height: 500px;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
@@ -635,7 +635,7 @@ pre {
 }
 
 .comparison-slideshow-image {
-    max-width: 800px;
+    max-width: 850px;
     width: 100%;
     height: 350px;
     margin: 0 auto;
@@ -643,6 +643,7 @@ pre {
     border-radius: 8px;
     display: block;
     margin-bottom: 15px;
+    /* padding: 1rem 0.5rem; */
 }
 
 .slideshow-nav {
@@ -734,7 +735,8 @@ pre {
 /* #C7DADF */
 /* #EDEDF4 */
 .gradient-text {
-    background: linear-gradient(45deg, #9578e4, #527f8c);
+    background: linear-gradient(45deg, #5d2fbf, #06c29c);
+    /* background: linear-gradient(45deg, #9578e4, #527f8c); */
     /* background: linear-gradient(45deg, #FF512F, #FF6F61, #DD2476); */
     -webkit-background-clip: text;
     background-clip: text;
