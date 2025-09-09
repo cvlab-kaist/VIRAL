@@ -12,14 +12,14 @@ by [Heeji Yoon](https://scholar.google.com/citations?user=uZmjqNMAAAAJ&hl=en)<su
 ---
 
 ## Introduction
-![](assets/teaser.png)<br>
+![](images/viral_teaser.png)<br>
 We introduce VIRAL (VIsual Representation ALignment), a simple regularization strategy that explicitly aligns intermediate visual features in MLLMs with representations from pretrained vision encoders or stronger vision foundation models (VFMs). This alignment preserves rich spatial and semantic information, enabling MLLMs to reason more effectively over complex visual inputs.
 
 Extensive experiments demonstrate that VIRAL consistently improves performance across standard multimodal benchmarks, highlighting the benefit of directly supervising the visual pathway. 
 
----
+![](images/benchmarks.png)<br>
 
-## Installation
+## 🔧 Installation
 We implement **VIRAL** on top of LLaVA. To set up the environment, run:  
 
 ```bash
@@ -33,12 +33,7 @@ pip install opencv-python --no-deps  # if using Depth-Anything
 ```
 This codebase was tested on Python=3.10 and CUDA=12.1 environment
 
-## Pretrained Weights
-
-Pretrained LoRA weights (Vicuna-1.5-7B + LLaVA-665k, with VIRAL-DINOv2) are available here: [Download](#)
-
-## Dataset Preparation (From LLaVA)
-
+## 💾 Dataset Preparation (From LLaVA)
 Please download the annotation of the final mixture instruction tuning data [llava_v1_5_mix665k.json](https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K/blob/main/llava_v1_5_mix665k.json), and download the images from constituting datasets:
 
 - COCO: [train2017](http://images.cocodataset.org/zips/train2017.zip)
@@ -63,7 +58,8 @@ After downloading all of them, organize the data as follows in `./playground/lla
     └── VG_100K_2
 ```
 
-## Training
+## 🔥 Training
+### Run
 To finetune Vicuna-1.5-7b with VIRAL, run:
 
 ```bash
@@ -71,7 +67,7 @@ bash scripts/v1_5/finetune_lora.sh
 ```
 Make sure --config_path ./config.json is included in the bash file.
 
-## Configuration
+### Configuration
 Example configuration of `config.json`
 ```bash
   "vra_loss": true,              # set false when running baseline model
@@ -81,4 +77,25 @@ Example configuration of `config.json`
   "projector_dim": 2048,         # hidden dimension of MLP projector (default: 2048)
   "z_dim": 768,                  # target VFM feature dimension
   "use_multiple_projectors": true # use separate MLPs for target layers (default: false)
+```
+
+## 🚀 Usage
+For an example of how to run inference, please refer to `inference.py` script.
+
+```
+python inference.py \
+  --model-path PATH/TO/MODEL \
+  --image-path PATH/TO/IMAGE \
+  --prompt YOUR PROMPT \
+  --temperature 0.2 \
+  --top_p 0.9 \
+  --max-new-tokens 128
+```
+
+## ☺️ Acknowledgement
+Code is implemented with extensive reference to [LLaVA](https://github.com/haotian-liu/LLaVA) and [REPA](https://github.com/sihyun-yu/REPA). We sincerely thank the original authors for their invaluable work and contributions!
+
+## 📑 Citation
+If you find this research useful, please consider citing:
+```
 ```
