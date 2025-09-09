@@ -10,14 +10,12 @@ by [Heeji Yoon](https://scholar.google.com/citations?user=uZmjqNMAAAAJ&hl=en)<su
 \*: Equal Contribution <br>  
 
 ---
-
 ## Introduction
-![](images/viral_teaser.png)<br>
+![](images/teaser_full.png)<br>
 We introduce VIRAL (VIsual Representation ALignment), a simple regularization strategy that explicitly aligns intermediate visual features in MLLMs with representations from pretrained vision encoders or stronger vision foundation models (VFMs). This alignment preserves rich spatial and semantic information, enabling MLLMs to reason more effectively over complex visual inputs.
 
 Extensive experiments demonstrate that VIRAL consistently improves performance across standard multimodal benchmarks, highlighting the benefit of directly supervising the visual pathway. 
 
-![](images/viral_benchmarks.png)<br>
 
 ## 🔧 Installation
 We implement **VIRAL** on top of LLaVA. To set up the environment, run:  
