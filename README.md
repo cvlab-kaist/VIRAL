@@ -17,7 +17,7 @@ We introduce VIRAL (VIsual Representation ALignment), a simple regularization st
 
 Extensive experiments demonstrate that VIRAL consistently improves performance across standard multimodal benchmarks, highlighting the benefit of directly supervising the visual pathway. 
 
-![](images/benchmarks.png)<br>
+![](images/viral_benchmarks.png)<br>
 
 ## 🔧 Installation
 We implement **VIRAL** on top of LLaVA. To set up the environment, run:  
