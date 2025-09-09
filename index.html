@@ -380,8 +380,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="model-col" rowspan="4"><strong>CLIP</strong></td>
-                                <td class="model-col" rowspan="2">Qwen2.5-7B</td>
+                                <td class="model-col" rowspan="4">CLIP</td>
+                                <td class="model-col" rowspan="2"><strong>Qwen2.5-7B</strong></td>
                                 <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
                                 <td>58.97%</td>
                                 <td>33.47%</td>
@@ -400,7 +400,7 @@
                                 <td><strong>1765.65</strong></td>
                             </tr>
                             <tr>
-                                <td class="model-col" rowspan="2">Vicuna-1.5-13B</td>
+                                <td class="model-col" rowspan="2"><strong>Vicuna-1.5-13B</strong></td>
                                 <td class="vra-col"><i class="fa fa-times vra-no" aria-label="VRA off"></i></td>
                                 <td>57.51%</td>
                                 <td>39.33%</td>
@@ -435,10 +435,115 @@
                 <h2>Ablation study on key design components</h2>
 
                 <p>We identify optimal visual features and layers for aligning MLLM representations. We adopt DINOv2 as the default encoder. Layer-wise analysis shows the 16th layer yields the best results, with single-layer alignment outperforming multi-layer targets. Finally, we compare direct feature alignment with relation-based objectives over self-similarity matrices.</p>
-                <div class="image-container">
+                <div class="table-container">
+                    <table class="advantages-table">
+                        <thead>
+                        <tr>
+                            <th class="model-col">VFM</th>
+                            <th class="model-col">Layer</th>
+                            <th class="model-col">Objective</th>
+                            <th>CV-Bench<sup>2D</sup></th>
+                            <th>MMVP</th>
+                            <th>What's Up</th>
+                            <th>POPE</th>
+                            <th>MME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Baseline -->
+                        <tr>
+                            <td class="model-col">Baseline</strong></td>
+                            <td></td>
+                            <td></td>
+                            <td>56.82%</td>
+                            <td>28.20%</td>
+                            <td>40.13%</td>
+                            <td>85.70%</td>
+                            <td>1650.21</td>
+                        </tr>
+
+                        <!-- Different VFMs -->
+                        <tr><td colspan="8"><em><span class="bold-text">Ablation on different VFMs</span></em></td></tr>
+                        <tr>
+                            <td><span class="bold-text">DINOv2</span></td><td>16</td><td>Cos. Sim.</td>
+                            <td><strong>59.67%</strong></td><td><strong>33.33%</strong></td>
+                            <td><u>48.55%</u></td><td>88.32%</td>
+                            <td><strong>1694.52</strong></td>
+                        </tr>
+                        <tr>
+                            <td>CLIP</td><td>16</td><td>Cos. Sim.</td>
+                            <td>57.51%</td><td>29.33%</td><td>44.50%</td><td>87.17%</td><td>1548.49</td>
+                        </tr>
+                        <tr>
+                            <td>SAM</td><td>16</td><td>Cos. Sim.</td>
+                            <td>57.58%</td><td>30.27%</td><td><strong>49.84%</strong></td><td>88.34%</td><td>1648.77</td>
+                        </tr>
+                        <tr>
+                            <td>DAv2</td><td>16</td><td>Cos. Sim.</td>
+                            <td><u>58.55%</u></td><td>28.67%</td><td>47.29%</td><td><strong>88.70%</strong></td><td>1682.42</td>
+                        </tr>
+                        <tr>
+                            <td>RADIO</td><td>16</td><td>Cos. Sim.</td>
+                            <td>57.59%</td><td><u>31.80%</u></td><td>47.35%</td><td><u>88.52%</u></td><td><u>1692.94</u></td>
+                        </tr>
+
+                        <!-- Single-layer targets -->
+                        <table class="advantages-table">
+                        <thead>
+                        <tr>
+                            <th class="model-col">VFM</th>
+                            <th class="model-col">Layer</th>
+                            <th class="model-col">Objective</th>
+                            <th>CV-Bench<sup>2D</sup></th>
+                            <th>MMVP</th>
+                            <th>What's Up</th>
+                            <th>POPE</th>
+                            <th>MME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td colspan="8"><em>Ablation on single-layer targets</em></td></tr>
+                        <tr><td>DINOv2</td><td>4</td><td>Cos. Sim.</td><td><u>58.55%</u></td><td><u>30.67%</u></td><td>45.05%</td><td>87.68%</td><td>1720.36</td></tr>
+                        <tr><td>DINOv2</td><td>8</td><td>Cos. Sim.</td><td>58.28%</td><td>27.70%</td><td><u>48.32%</u></td><td><u>88.43%</u></td><td>1662.67</td></tr>
+                        <tr><td>DINOv2</td><td>12</td><td>Cos. Sim.</td><td>57.77%</td><td>28.59%</td><td>48.19%</td><td>88.27%</td><td>1648.88</td></tr>
+                        <tr><td>DINOv2</td><td>16</td><td>Cos. Sim.</td><td><strong>59.67%</strong></td><td><strong>33.33%</strong></td><td><strong>48.55%</strong></td><td>88.32%</td><td>1694.52</td></tr>
+                        <tr><td>DINOv2</td><td>20</td><td>Cos. Sim.</td><td>55.22%</td><td>27.41%</td><td>48.04%</td><td>88.39%</td><td>1705.97</td></tr>
+                        <tr><td>DINOv2</td><td>24</td><td>Cos. Sim.</td><td>55.77%</td><td>27.48%</td><td>47.99%</td><td>88.10%</td><td><u>1740.55</u></td></tr>
+                        <tr><td>DINOv2</td><td>28</td><td>Cos. Sim.</td><td>54.87%</td><td>27.19%</td><td>47.82%</td><td><strong>88.56%</strong></td><td><strong>1755.86</strong></td></tr>
+                        <tr><td>DINOv2</td><td>32</td><td>Cos. Sim.</td><td>56.12%</td><td>26.52%</td><td>47.60%</td><td>87.32%</td><td>1678.69</td></tr>
+
+                        <!-- Multi-layer targets -->
+                        <tr><td colspan="8"><em>Ablation on multi-layer targets</em></td></tr>
+                        <tr><td>DINOv2</td><td>15–17</td><td>Cos. Sim.</td><td>59.32%</td><td>28.00%</td><td>47.17%</td><td>87.61%</td><td>1639.72</td></tr>
+                        <tr><td>DINOv2</td><td>14–18</td><td>Cos. Sim.</td><td>49.62%</td><td>22.55%</td><td>42.58%</td><td>87.90%</td><td>1444.32</td></tr>
+                        </tbody>    
+                        <table class="advantages-table">
+                        <thead>
+                        <tr>
+                            <th class="model-col">VFM</th>
+                            <th class="model-col">Layer</th>
+                            <th class="model-col">Objective</th>
+                            <th>CV-Bench<sup>2D</sup></th>
+                            <th>MMVP</th>
+                            <th>What's Up</th>
+                            <th>POPE</th>
+                            <th>MME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Alignment objectives -->
+                        <tr><td colspan="8"><em>Ablation on different objectives</em></td></tr>
+                        <tr><td>DINOv2</td><td>16</td><td>Relation</td><td>58.83%</td><td>26.60%</td><td><strong>49.05%</strong></td><td>87.58%</td><td>1674.30</td></tr>
+                        <tr><td>DINOv2</td><td>16</td><td>Cos. Sim.</td><td><strong>59.67%</strong></td><td><strong>33.33%</strong></td><td>48.55%</td><td><strong>88.32%</strong></td><td><strong>1694.52</strong></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="image-caption">Ablation results across VFMs, layers, and objectives. Consistent gains are observed with VIRAL regularization.</p>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="image-container">
                     <img src="images/viral_ablation_study_final.png" class="img medium-image" alt="Ablation study charts">
                     <p class="image-caption">We analyze the effects of (i) different vision foundation models (VFMs), (ii) alignment target layers, and (iii) alignment objectives, through evaluation on both vision-centric and general multimodal benchmarks. All experiments are conducted on the LLaVA-1.5-7B baseline.</p>
-                </div>
+                </div> -->
             </section>
 
             <section id="analysis" class="section">

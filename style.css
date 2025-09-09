@@ -1,7 +1,10 @@
 :root {
   --primary-color: #000;
   --secondary-color: #333;
-  --accent-color: #667eea;
+  /* --accent-color: #9375d2; */
+  --accent-color: #7155ae;
+  --accent-bg-color: #e3e4f3e1;
+  /* --accent-color: #667eea; */
   --text-color: #2d3748;
   --light-text: #4a5568;
   --background-color: #ffffff;
@@ -214,8 +217,12 @@ p {
 .table-container {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+/* .table-container-ablation {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
 
-.image-container:hover, .table-container:hover, .video-container:hover {
+
+.image-container:hover, .table-container:hover, .video-container:hover, .table-container-ablation:hover {
   /* transform: translateY(-5px); */
   box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.25), 0 10px 15px 0px rgba(0, 0, 0, 0.15);
 }
@@ -755,6 +762,23 @@ pre {
     overflow-x: auto;
 }
 
+.table-container.abl { /* ablation table: narrower container */
+  width: 80%;              /* shrink overall width */
+  margin-left: auto;       /* center horizontally */
+  margin-right: auto;
+  font-size: 0.95rem;  /* slightly smaller text */
+}
+
+/* Ensure inner table uses full width of this smaller container */
+.table-container.abl .advantages-table { width: 100%; }
+
+@media (max-width: 1000px) {
+  .table-container.abl { width: 85%; }
+}
+@media (max-width: 700px) {
+  .table-container.abl { width: 100%; }
+}
+
 .advantages-table {
   width: 90%;
   border-collapse: collapse;
@@ -982,4 +1006,76 @@ pre {
 /* Optional: tighten right image container padding a bit */
 .two-col .col-right .image-container {
   padding: 0.75rem 0.75rem 0.9rem;
+}
+
+
+
+.table-container-ablation {
+  width: 50%;          /* 화면의 70%만 차지 */
+  margin: 0 auto;      /* 가운데 정렬 */
+  overflow-x: auto;    /* 넘치면 스크롤 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1vw;      /* 글자 크기도 뷰포트 너비 기준으로 축소/확대 */
+  box-sizing: border-box;
+}
+
+.table-container-ablation .advantages-table-abl {
+  width: 100%;         /* 컨테이너에 맞춰 크기 조정 */
+  border-collapse: collapse;
+  table-layout: fixed; /* 비율 유지 */
+}
+
+.table-container-ablation .advantages-table-abl th,
+.table-container-ablation .advantages-table-abl td {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  padding: 0.5em;
+}
+
+
+
+
+.advantages-table-abl .vra-col {
+  width: 70px; /* adjust narrower width */
+  max-width: 70px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  border-right: 2px solid var(--border-color);
+}
+
+/* Narrow left model column */
+.advantages-table-abl .model-col {
+  width: 150px; /* adjust narrower width */
+  max-width: 150px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+/* Simple VRA on/off icon colors */
+.advantages-table-abl .vra-yes { color: #63c7a4; font-size: 1rem; transition: color .2s ease; }
+.advantages-table-abl .vra-no { color: #f29a9a; font-size: 1rem; transition: color .2s ease; }
+
+@media (max-width: 768px) {
+  .advantages-table-abl .model-col { width: 90px; max-width: 90px; font-size: 0.85rem; }
+}
+
+/* Remove double border on last vra cell if table ends */
+
+.advantages-table th {
+    /* background-color: var(--light-bg); */
+    background-color: var(--accent-bg-color);
+    color: var(--primary-color);
+
+}
+
+.table-container-ablation:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.25), 0 10px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.bold-text {
+    font-weight: 800;
 }
