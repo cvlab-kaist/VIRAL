@@ -1,5 +1,5 @@
 # VIRAL: VIsual Representation ALignment for MLLMs
-<a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-%23B31B1B"></a>
+<a href="https://arxiv.org/pdf/2509.07979"><img src="https://img.shields.io/badge/arXiv-2509.07979-%23B31B1B"></a>
 <a href="https://cvlab-kaist.github.io/VIRAL"><img src="https://img.shields.io/badge/Project%20Page-online-brightgreen"></a>  
 <br>
 
