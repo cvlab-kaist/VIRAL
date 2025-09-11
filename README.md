@@ -96,4 +96,13 @@ Code is implemented with extensive reference to [LLaVA](https://github.com/haoti
 ## 📑 Citation
 If you find this research useful, please consider citing:
 ```
+@misc{yoon2025visualrepresentationalignmentmultimodal,
+      title={Visual Representation Alignment for Multimodal Large Language Models}, 
+      author={Heeji Yoon and Jaewoo Jung and Junwan Kim and Hyungyu Choi and Heeseong Shin and Sangbeom Lim and Honggyu An and Chaehyun Kim and Jisang Han and Donghyun Kim and Chanho Eom and Sunghwan Hong and Seungryong Kim},
+      year={2025},
+      eprint={2509.07979},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2509.07979}, 
+}
 ```
