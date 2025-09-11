@@ -5,7 +5,7 @@
 
 This is the official implementation of the paper *"Visual Representation Alignment for Multimodal Large Language Models (VIRAL)"*  
 
-by [Heeji Yoon](https://scholar.google.com/citations?user=uZmjqNMAAAAJ&hl=en)<sup>&#42;</sup>, [Jaewoo Jung](https://crepejung00.github.io/)<sup>&#42;</sup>, [Junwan Kim](https://junwankimm.github.io/)<sup>&#42;</sup>, [Hyungyu Choi](https://hyungyu-choi.github.io/), [Heeseong Shin](https://hsshin98.github.io/), [Sangbeom Lim](https://sites.google.com/view/sangbeomlim/home), [Honggyu An](https://hg010303.github.io/), [Chaehyun Kim](https://kchyun.github.io/), [Jisang Han](https://onground-korea.github.io/), [Donghyun Kim](https://cs-people.bu.edu/donhk/), [Chanho Eom](https://pailab.cau.ac.kr/members/faculty), [Sunghwan Hong](https://sunghwanhong.github.io/), [Seungryong Kim](https://cvlab.kaist.ac.kr/members/faculty)
+by [Heeji Yoon](https://yoon-heez.github.io/)<sup>&#42;</sup>, [Jaewoo Jung](https://crepejung00.github.io/)<sup>&#42;</sup>, [Junwan Kim](https://junwankimm.github.io/)<sup>&#42;</sup>, [Hyungyu Choi](https://hyungyu-choi.github.io/), [Heeseong Shin](https://hsshin98.github.io/), [Sangbeom Lim](https://sites.google.com/view/sangbeomlim/home), [Honggyu An](https://hg010303.github.io/), [Chaehyun Kim](https://kchyun.github.io/), [Jisang Han](https://onground-korea.github.io/), [Donghyun Kim](https://cs-people.bu.edu/donhk/), [Chanho Eom](https://pailab.cau.ac.kr/members/faculty), [Sunghwan Hong](https://sunghwanhong.github.io/), [Seungryong Kim](https://cvlab.kaist.ac.kr/members/faculty)
 
 \*: Equal Contribution <br>  
 
